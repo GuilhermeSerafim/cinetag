@@ -19,8 +19,8 @@ export default function FavoritosProvider({ children }) {
     )
 }
 
-
-//Essa função adicionarFavorito lida com a lógica de adicionar ou remover favoritos da lista, garantindo que um novoFavorito não seja duplicado na lista de favoritos.
+//Hook personalizado
+//Essa função adicionarFavorito lida com a lógica de ADICIONAR ou REMOVER favoritos da lista, garantindo que um novoFavorito não seja duplicado na lista de favoritos.
     export function useFavoritoContext(){
         const { favorito, setFavorito } = useContext(FavoritosContext);
         
