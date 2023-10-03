@@ -4,6 +4,7 @@ import Titulo from 'components/Titulo';
 import Card from 'components/Card';
 import { useFavoritoContext } from 'contextos/Favoritos';
 
+//Pagina de favoritos (conforme preenchido na page Inicio(comp Card))
 function Favoritos() {
     const { favorito } = useFavoritoContext();
     return (
