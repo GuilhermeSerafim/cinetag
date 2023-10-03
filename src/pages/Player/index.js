@@ -20,6 +20,14 @@ function Player() {
             <Titulo>
                 <h1>Player</h1>
             </Titulo>
+            <section className={styles.container}>
+                <iframe
+                    src={video.link}
+                    title={video.titulo}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </section>
         </>
     )
 }
