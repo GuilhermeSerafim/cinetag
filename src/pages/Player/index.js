@@ -1,20 +1,24 @@
 import Banner from 'components/Banner';
-import styles from './Player.module.css';
 import Titulo from 'components/Titulo';
-import videos from "json/db.json"
 import { useParams } from 'react-router-dom';
+import styles from './Player.module.css';
 import NaoEncontrada from 'pages/NaoEncontrada';
+import { useEffect, useState } from 'react';
 
 function Player() {
-    //Ele pega o parametro na url e bota na variavel
+    const [video, setVideo] = useState();
     const parametros = useParams();
-    //Retornando valor
-    const video = videos.find((video) => {
-        return video.id === Number(parametros.id); //Conversão para numero
-    })
 
-    if(!video) {
-        return <NaoEncontrada/>
+    useEffect(() => {
+        fetch(`https://my-json-server.typicode.com/GuilhermeSerafim/cinetag-api/videos?id=${parametros.id}`)
+            .then(resposta => resposta.json())
+            .then(dados => {
+                setVideo(...dados)
+            })
+    }, [])
+
+    if (!video) {
+        return <NaoEncontrada />
     }
 
     return (
@@ -25,11 +29,12 @@ function Player() {
             </Titulo>
             <section className={styles.container}>
                 <iframe
+                    width="100%"
+                    height="100%"
                     src={video.link}
                     title={video.titulo}
                     frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </section>
         </>
     )
