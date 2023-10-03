@@ -3,7 +3,7 @@ import Container from "components/Container";
 import Rodape from "components/Rodape";
 import FavoritosProvider from "contextos/Favoritos";
 import Inicio from "pages/Inicio";
-import Favoritos from "pages/Inicio/Favoritos";
+import Favoritos from "pages/Favoritos";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function AppRoutes() {
